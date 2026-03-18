@@ -1,0 +1,5 @@
+.alpackages/
+.alcache/
+.vscode/
+*.app
+*.json
