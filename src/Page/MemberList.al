@@ -5,6 +5,7 @@ page 50118 "Member List"
     PageType = List;
     SourceTable = "Member";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

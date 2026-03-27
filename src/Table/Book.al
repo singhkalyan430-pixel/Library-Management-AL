@@ -34,4 +34,5 @@ table 50118 "Book"
             Clustered = true;
         }
     }
+
 }

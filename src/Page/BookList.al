@@ -5,6 +5,8 @@ page 50119 "Book List"
     PageType = List;
     SourceTable = "Book";
     ApplicationArea = All;
+    UsageCategory = Lists;
+
 
     layout
     {
