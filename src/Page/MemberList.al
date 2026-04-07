@@ -29,27 +29,6 @@ page 50118 "Member List"
         }
     }
 
-    /*actions
-    {
-        area(Navigation)
-        {
-            action(NewMember)
-            {
-                Caption = 'New Member';
-                Image = New;
-                trigger OnAction()
-                begin
-                    // Code to create a new member record
-                    var newMember: Record "Member";
-                    newMember.Init();
-                    newMember."Member ID" := GetNextMemberID();
-                    newMember.Insert();
-                    CurrPage.Update();
-                end;
-            }
-        }
-    }
-
     local procedure GetNextMemberID(): Integer
     var
         member: Record "Member";
@@ -57,5 +36,5 @@ page 50118 "Member List"
         if not member.FindLast() then
             exit(1);
         exit(member."Member ID" + 1);
-    end;*/
+    end;
 }

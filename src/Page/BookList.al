@@ -30,28 +30,6 @@ page 50119 "Book List"
         }
     }
 
-    /*actions
-    {
-        area(Navigation)
-        {
-            action(NewBook)
-            {
-                Caption = 'New Book';
-                Image = New;
-                trigger OnAction()
-                begin
-                    // Code to create a new book record
-                    var
-                        newBook: Record "Book";
-                        newBook.Init();
-                    newBook."Book ID" := GetNextBookID();
-                    newBook.Insert();
-                    CurrPage.Update();
-                end;
-            }
-        }
-    }
-
     local procedure GetNextBookID(): Integer
     var
         book: Record "Book";
@@ -59,5 +37,5 @@ page 50119 "Book List"
         if not book.FindLast() then
             exit(1);
         exit(book."Book ID" + 1);
-    end;*/
+    end;
 }

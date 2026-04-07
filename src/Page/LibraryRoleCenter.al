@@ -13,25 +13,10 @@ page 50122 "Library Role Center"
             {
                 ApplicationArea = All;
             }
-
-            /*part(ChartPart; "Library Chart")
-            {
-                     ApplicationArea = All;
-            }*/
         }
     }
 
-    /*actions
-    {
-        area(Sections)
-        {
-            action("Issued Books Report")
-            {
-                ApplicationArea = All;
-                RunObject = report "Issued Books Report";
-            }
-        }
-    }*/
+
     actions
     {
         area(Sections)
@@ -54,6 +39,11 @@ page 50122 "Library Role Center"
                 {
                     ApplicationArea = All;
                     RunObject = Page "Book Issue List";
+                }
+                action("Return Books")
+                {
+                    ApplicationArea = All;
+                    RunObject = Page "Return Book List";
                 }
 
                 action("Issued Books Report")

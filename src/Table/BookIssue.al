@@ -3,11 +3,12 @@ table 50119 "Book Issue"
     Caption = 'Book Issue';
     DataClassification = ToBeClassified;
 
+
     fields
     {
         field(1; "Issue ID"; Code[20])
         {
-
+            DataClassification = ToBeClassified;
         }
         field(2; "Book ID"; Code[20])
         {
@@ -25,6 +26,10 @@ table 50119 "Book Issue"
         {
 
         }
+        field(6; "Due Date"; Date)
+        {
+            Caption = 'Due Date';
+        }
     }
 
 
@@ -39,11 +44,31 @@ table 50119 "Book Issue"
     trigger OnInsert()
     var
         BookRec: Record "Book";
+        LastRec: Record "Book Issue";
+        NewNo: Integer;
+
     begin
+        // Auto Issue ID
+        if "Issue ID" = '' then begin
+            if LastRec.FindLast() then
+                Evaluate(NewNo, LastRec."Issue ID")
+            else
+                NewNo := 0;
+
+            NewNo += 1;
+            "Issue ID" := Format(NewNo);
+        end;
+
+        // Auto Dates
+        "Issue Date" := Today();
+        "Due Date" := Today() + 7;
+
+        // Book availability
         if BookRec.Get("Book ID") then begin
             if BookRec.Available = false then
                 Error('Book is not available for issue.');
-            BookRec."Available" := false;
+
+            BookRec.Available := false;
             BookRec.Modify();
         end;
     end;
@@ -59,4 +84,5 @@ table 50119 "Book Issue"
             end;
         end;
     end;
+
 }
